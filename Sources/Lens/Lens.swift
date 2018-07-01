@@ -27,7 +27,7 @@ public func .~ <Subpart, Whole>(lhs: Lens<Subpart, Whole>, rhs: Subpart) -> (Who
     return set(value: rhs, lens: lhs)
 }
 
-extension WritableKeyPath {
+public extension WritableKeyPath {
     var toLens: Lens<Value, Root> {
         return lens(view: { $0[keyPath: self] }, set: {
             var copy = $1

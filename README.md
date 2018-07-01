@@ -1,6 +1,8 @@
 # Lens
+Lens for Swift.
 
-A description of this package.
+Only implements `Setter` of Lens, it is no necessary to implements `Getter` in
+Swift, just use `dot syntax` to access properties. 
 
 # Let's fly
 ## Immutable Data
