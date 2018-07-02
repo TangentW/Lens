@@ -53,6 +53,10 @@ final class LensTests: XCTestCase {
         
         XCTAssertEqual(formatter.dateFormat, "yyyy-MM-dd")
         XCTAssertEqual(formatter.timeZone.secondsFromGMT(), 0)
+        
+        let tuple = (1, (2, 3, (4, 5, 6, (7, 8))))
+        let resultTuple = tuple |> _2 <<<  _3 <<< _4 <<< _2 .~ 9
+        XCTAssertEqual(resultTuple.1.2.3.1, 9)
     }
 
 
