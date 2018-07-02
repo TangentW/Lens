@@ -6,6 +6,7 @@ Swift, just use `dot syntax` to access properties.
 
 # Let's fly
 ## Immutable Data
+### Struct
 ```Swift
 struct Rect: Equatable {
     let origin: Point
@@ -52,9 +53,17 @@ func fly() {
         |> Rect.sizeLens <<< Size.widthLens %~ { 10 * $0 }
         |> Rect.sizeLens <<< Size.heightLens %~ { 10 * $0 }
     
-    // Sure~
+    // Sure ~
 //    result == haha
 }
+```
+
+### Tuple
+```Swift
+let tuple = (1, (2, 3, (4, 5, 6, (7, 8))))
+let resultTuple = tuple |> _2 <<<  _3 <<< _4 <<< _2 .~ 9
+// Sure ~
+// resultTuple.1.2.3.1 == 9
 ```
 
 ## Using `KeyPath` for mutable Data 
